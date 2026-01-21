@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class AutoSizeTextPage extends StatefulWidget {
   const AutoSizeTextPage({super.key});
@@ -8,6 +9,8 @@ class AutoSizeTextPage extends StatefulWidget {
 }
 
 class _AutoSizeTextPageState extends State<AutoSizeTextPage> {
+  TextEditingController controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -15,10 +18,26 @@ class _AutoSizeTextPageState extends State<AutoSizeTextPage> {
         appBar: AppBar(title: Text("Auto Size Text")),
         body: Container(
           margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          child: Card(
-            child: Text(
-              "O cuidado em identificar pontos críticos no desafiador cenário globalizado não pode mais se dissociar do sistema de formação de quadros que corresponde às necessidade",
-            ),
+          child: Column(
+            children: [
+              TextField(
+                controller: controller,
+                maxLines: 5,
+                onChanged: (value) {
+                  setState(() {});
+                },
+              ),
+              Card(
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+                  child: AutoSizeText(
+                    controller.text,
+                    maxLines: 3,
+                    minFontSize: 10,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

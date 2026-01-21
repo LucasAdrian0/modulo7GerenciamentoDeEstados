@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pacotes/pages/home_page.dart';
+import 'package:pacotes/pages/splash_screen/splash_screen__delay_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -8,8 +8,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: const HomePage(),
+      theme: ThemeData(useMaterial3: false, primarySwatch: Colors.blue),
+      home: const SplashScreenDelayPage(),
     );
   }
 }
