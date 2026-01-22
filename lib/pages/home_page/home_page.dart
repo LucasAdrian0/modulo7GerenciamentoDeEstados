@@ -1,9 +1,8 @@
-import 'package:brasil_fields/brasil_fields.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pacotes/pages/brasil_fields_page/brasil_fields_page.dart';
 import 'package:pacotes/shared/widget/custon_drawer.dart';
 
 class HomePage extends StatefulWidget {
@@ -26,29 +25,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Meu App", style: GoogleFonts.roboto())),
+      appBar: AppBar(
+        title: Text("APP_TITLE".tr(), style: GoogleFonts.roboto()),
+      ),
       drawer: CustonDrawer(),
       body: TabBarView(
         controller: tabController,
         children: [
-          Container(color: Colors.orange),
+          Container(color: Colors.white),
           Container(color: Colors.yellow),
           Container(color: Colors.red),
           Container(color: Colors.green),
-          Container(
-            color: Colors.white,
-            child: Column(
-              children: [
-                TextFormField(
-                  inputFormatters: [
-                    // obrigatório
-                    FilteringTextInputFormatter.digitsOnly,
-                    CepInputFormatter(),
-                  ],
-                ),
-              ],
-            ),
-          ),
+          BrasilFieldsPage(),
         ],
       ),
       bottomNavigationBar: ConvexAppBar.badge(
