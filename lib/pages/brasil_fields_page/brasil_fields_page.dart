@@ -58,8 +58,8 @@ class _BrasilFieldsPageState extends State<BrasilFieldsPage> {
               Center(
                 child: TextButton(
                   onPressed: () {
-                    print(CPFValidator.isValid(controllerCPF.text));
-                    print(CPFValidator.isValid(CPFValidator.generate()));
+                    debugPrint(CPFValidator.isValid(controllerCPF.text).toString());
+                    debugPrint(CPFValidator.isValid(CPFValidator.generate()).toString());
                   },
                   child: Text("Continuar"),
                 ),

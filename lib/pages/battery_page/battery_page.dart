@@ -16,15 +16,13 @@ class _BatteryPageState extends State<BatteryPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     initPage();
     battery.onBatteryStateChanged.listen((BatteryState state) {
-      //print(state);
     });
   }
 
-  initPage() async {
+  Future<void> initPage() async {
     statusBateria = await battery.batteryLevel;
     setState(() {});
   }

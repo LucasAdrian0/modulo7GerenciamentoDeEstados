@@ -19,7 +19,7 @@ class _ConnectivyPlusPageState extends State<ConnectivyPlusPage> {
     subscription = Connectivity().onConnectivityChanged.listen((
       List<ConnectivityResult> result,
     ) {
-      print(result);
+      debugPrint(result.toString());
     });
   }
 
@@ -41,7 +41,7 @@ class _ConnectivyPlusPageState extends State<ConnectivyPlusPage> {
               onPressed: () async {
                 final List<ConnectivityResult> connectivityResult =
                     await (Connectivity().checkConnectivity());
-                print(connectivityResult);
+                debugPrint(connectivityResult.toString());
 
                 // This condition is for demo purposes only to explain every connection type.
                 // Use conditions which work for your requirements.

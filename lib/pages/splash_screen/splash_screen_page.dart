@@ -49,7 +49,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
                     FadeAnimatedText('Navegando...'),
                   ],
                   onTap: () {
-                    print("Tap Event");
+                    debugPrint("Tap Event");
                   },
                 ),
               ),

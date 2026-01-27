@@ -170,12 +170,12 @@ class CustonDrawer extends StatelessWidget {
             onTap: () {
               var f = NumberFormat('#,###.0#', 'en_US');
               var fBR = NumberFormat('#,###.0#', 'pt_BR');
-              print(f.format(12345.345));
-              print(fBR.format(123456.345));
+              debugPrint(f.format(12345.345));
+              debugPrint(fBR.format(123456.345));
 
               var data = DateTime(2022, 05, 09);
-              print(DateFormat('EEEEE', 'pt_BR').format(data));
-              print(DateFormat('EEEEE', 'en_US').format(data));
+              debugPrint(DateFormat('EEEEE', 'pt_BR').format(data));
+              debugPrint(DateFormat('EEEEE', 'en_US').format(data));
             },
           ),
           const Divider(),
@@ -199,7 +199,7 @@ class CustonDrawer extends StatelessWidget {
               } else {
                 context.setLocale(Locale('pt', 'BR'));
               }
-              print(context.locale.toString());
+              debugPrint(context.locale.toString());
               Navigator.pop(context);
             },
           ),
@@ -250,12 +250,12 @@ class CustonDrawer extends StatelessWidget {
             ),
             onTap: () async {
               var directory = await path_provider.getTemporaryDirectory();
-              print(directory.path);
+              debugPrint(directory.path);
               directory = await path_provider.getApplicationSupportDirectory();
-              print(directory.path);
+              debugPrint(directory.path);
               directory = await path_provider
                   .getApplicationDocumentsDirectory();
-              print(directory.path);
+              debugPrint(directory.path);
             },
           ),
           const Divider(),
@@ -284,10 +284,10 @@ class CustonDrawer extends StatelessWidget {
               String packageName = packageInfo.packageName;
               String version = packageInfo.version;
               String buildNumber = packageInfo.buildNumber;
-              print(appName);
-              print(packageName);
-              print(version);
-              print(buildNumber);
+              debugPrint(appName);
+              debugPrint(packageName);
+              debugPrint(version);
+              debugPrint(buildNumber);
             },
           ),
           const Divider(),
@@ -309,15 +309,15 @@ class CustonDrawer extends StatelessWidget {
               DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
               if (Platform.isAndroid) {
                 AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
-                print('Running on ${androidInfo.model}'); // e.g. "Moto G (4)"
+                debugPrint('Running on ${androidInfo.model}'); // e.g. "Moto G (4)"
               } else if (Platform.isIOS) {
                 IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
-                print(
+                debugPrint(
                   'Running on ${iosInfo.utsname.machine}',
                 ); // e.g. "iPod7,1"
               } else {
                 WebBrowserInfo webBrowserInfo = await deviceInfo.webBrowserInfo;
-                print('Running on ${webBrowserInfo.userAgent}');
+                debugPrint('Running on ${webBrowserInfo.userAgent}');
               }
             },
           ),
