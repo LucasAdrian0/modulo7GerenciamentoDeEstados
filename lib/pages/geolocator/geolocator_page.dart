@@ -55,7 +55,18 @@ class _GeolocatorPageState extends State<GeolocatorPage> {
 
     // When we reach here, permissions are granted and we can
     // continue accessing the position of the device.
-    return await Geolocator.getCurrentPosition();
+
+    //possição em tempo real modo maximo inativado, devido a travamento no app
+    //   return await Geolocator.getCurrentPosition();
+
+    //Linha de codigo substituida para evitar travamento no app
+    // ignore: deprecated_member_use
+    return await Geolocator.getCurrentPosition(
+      // ignore: deprecated_member_use
+      desiredAccuracy: LocationAccuracy.medium,
+      // ignore: deprecated_member_use
+      timeLimit: const Duration(seconds: 6),
+    );
   }
 
   @override

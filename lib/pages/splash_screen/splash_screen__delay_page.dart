@@ -10,6 +10,13 @@ class SplashScreenDelayPage extends StatefulWidget {
 }
 
 class _SplashScreenDelayPageState extends State<SplashScreenDelayPage> {
+  //adicionei o init state aqui para evitar o travamento
+  @override
+  void initState() {
+    super.initState();
+    openHome();
+  }
+
   openHome() {
     Future.delayed(Duration(seconds: 2), () {
       Navigator.pushReplacement(
@@ -21,7 +28,7 @@ class _SplashScreenDelayPageState extends State<SplashScreenDelayPage> {
 
   @override
   Widget build(BuildContext context) {
-    openHome();
+    //openHome(); caomentado para evitar o travamento
     return SafeArea(
       child: Scaffold(
         body: Container(

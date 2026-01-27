@@ -7,8 +7,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:pacotes/pages/auto_size_text.dart';
 import 'package:pacotes/pages/battery_page/battery_page.dart';
+import 'package:pacotes/pages/camera/camera_page.dart';
 import 'package:pacotes/pages/connectivity_plus/connectivy_plus_page.dart';
 import 'package:pacotes/pages/geolocator/geolocator_page.dart';
+import 'package:pacotes/pages/qr_code/qr_code_page.dart';
 import 'package:pacotes/pages/percent_indicator/percent_indicator.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -360,6 +362,50 @@ class CustonDrawer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (_) => GeolocatorPage()),
+              );
+            },
+          ),
+          const Divider(),
+          const SizedBox(height: 10),
+          //Camera
+          InkWell(
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              width: double.infinity,
+              child: Row(
+                children: [
+                  FaIcon(FontAwesomeIcons.camera, color: Colors.blue, size: 24),
+                  SizedBox(width: 5),
+                  Text("Camera"),
+                ],
+              ),
+            ),
+            onTap: () async {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => CameraPage ()),
+              );
+            },
+          ),
+          const Divider(),
+          const SizedBox(height: 10),
+          //qrcode
+          InkWell(
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              width: double.infinity,
+              child: Row(
+                children: [
+                  FaIcon(FontAwesomeIcons.qrcode, color: Colors.blue, size: 24),
+                  SizedBox(width: 5),
+                  Text("QR Code"),
+                ],
+              ),
+            ),
+            onTap: () async {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => QrCodePage()),
               );
             },
           ),
