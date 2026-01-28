@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       locale: context.locale,
 
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: false, primarySwatch: Colors.blue),
+      theme: ThemeData.dark(useMaterial3: false),
       home: const SplashScreenDelayPage(),
     );
   }
